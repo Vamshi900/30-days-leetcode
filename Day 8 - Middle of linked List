@@ -1,0 +1,41 @@
+Runtime : 48 ms  > 89.9 %
+memory : 34 mb
+// has some junk code can remove it
+
+find middle of linked list
+
+**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var middleNode = function(head) {
+    let slowPointer= head ; 
+    let fastPointer = head;
+    let count = 0;
+    if(head.next === null){
+        return head;
+    }else if(head.next.next === null){
+        return head.next;
+    }else{
+        while (fastPointer.next !== null && fastPointer.next.next !== null) {
+  fastPointer = fastPointer.next.next;   
+  slowPointer = slowPointer.next;
+}
+     while(head.next!==null){
+         ++count;
+         head = head.next;
+     }
+        ++count;
+        
+    }
+
+
+   return (count%2 === 0 ?  slowPointer.next : slowPointer);
+};
